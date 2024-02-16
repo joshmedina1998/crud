@@ -6,6 +6,7 @@ require("dotenv").config();
 const routes = require("./routes/TaskRoute");
 
 const app = express();
+const PORT = process.env.PORT || 80; // Use port 80 as the default
 
 app.use(cors()); // Enable CORS
 app.use(express.json());
@@ -33,5 +34,4 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something went wrong!");
 });
 
-const port = process.env.PORT || 80;
-app.listen(port, () => console.log(`Listening at ${port}`));
+app.listen(PORT, () => console.log(`Listening at ${PORT}`));
